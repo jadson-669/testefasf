@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/trabalho area /css/styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <div id="welcome-popup" class="popup">
+        <div class="popup-content">
+          <h2>Seja Bem-Vindo ao GESINC</h2>
+          <p>Explore nosso sistema e aproveite a experiência!</p>
+          <button id="show-tutorial">📹 Ver Tutorial</button>
+          <button id="close-popup">✖ Fechar</button>
+          <div id="tutorial-container" class="hidden">
+            <video id="tutorial-video" controls>
+              <source src="/trabalho area /img/Bathory - One Rode To Asa Bay (Official Music Video).mp4" type="video/mp4">
+              Seu navegador não suporta vídeos.
+            </video>
+          </div>
+        </div>
+      </div>
+      
+    <!-- Menu Superior -->
+    <nav class="menu-nav">
+        <button id="theme-toggle">
+            <ion-icon name="moon-outline"></ion-icon>
+          </button>
+        <img src="/trabalho area /img/teste.png" class="left-login-image" alt="logotipo.jpg">
+        <div class="perfil">
+            <h3> Stella Dornelas <br><span>Professor</span></h3>
+            <div class="imgcx">
+                <img src="/trabalho area /img/file.jpeg" alt="...">
+            </div>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="#"><ion-icon name="person-outline"></ion-icon> Professor</a></li>
+                <li><a href="#"><ion-icon name="people-outline"></ion-icon> Coordenador</a></li>
+                <li><a href="#"><ion-icon name="person-add-outline"></ion-icon> Administrador</a></li>
+                <li><a href="#"><ion-icon name="log-out-outline"></ion-icon> Sair</a></li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Div Principal com duas divisões internas -->
+    <div class="main-content">
+        <!-- Div Lado Esquerdo -->
+        <div class="left">
+            <div class="container">
+                <main>
+                    <div class="select02">
+                    <div class="select-container">
+                        <label for="select-curso">Curso</label>
+                        <select id="select-curso" onchange="exibirInformacoes()">
+                            <option value="">Selecione um curso</option>
+                            <option value="1">ADS</option>
+                            <option value="2">Administração</option>
+                            <option value="3">Direito</option>
+                            <option value="5">Design Gráfico</option>
+                        </div>
+                        </select>
+                    </div>
+                    <div id="info-curso" class="info hidden">
+                        <h3 id="curso-nome"></h3>
+                        <p><strong>Período:</strong> <span id="periodo"></span></p>
+                        <p><strong>Coordenador:</strong> <span id="coordenador"></span></p>
+                        <p><strong>Disciplinas:</strong> <span id="disciplinas"></span></p>
+                    </div>
+                    <div class="select-container">
+                        <label for="select-disciplina">Disciplina</label>
+                        <select id="select-disciplina" onchange="exibirInformacoesDisciplina()" disabled>
+                            <option value="">Selecione uma disciplina</option>
+                        </select>
+                    </div>
+                </main>
+                <div id="info-disciplina" class="info hidden">
+                    <h3>Informações da Disciplina</h3>
+                    <p><strong>Carga Horária:</strong> <span id="carga-horaria"></span></p>
+                    <p><strong>Professor:</strong> <span id="professor-disciplina"></span></p>
+                    <p><strong>Alunos Matriculados:</strong> <span id="alunos-matriculados"></span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Div Lado Direito -->
+        <div class="right">
+            <div class="direita">
+                <div class="container" id="container">
+                    <!-- Quadradinhos -->
+                    <div class="quadradinhos">
+                      <div class="quadrado" id="chamada" onmouseover="mostrarTexto('Fazer chamada de presença')" onclick="mudarTela('chamada')">
+                        <i class="icon">📞</i>
+                        <p>Chamada</p>
+                      </div>
+                      <div class="quadrado" id="nota" onmouseover="mostrarTexto('Inserir nota de aluno')" onclick="mudarTela('nota')">
+                        <i class="icon">📝</i>
+                        <p>Nota</p>
+                      </div>
+                      <div class="quadrado" id="conteudo" onmouseover="mostrarTexto('Adicionar conteúdo da aula')" onclick="mudarTela('conteudo')">
+                        <i class="icon">📚</i>
+                        <p>Conteúdo</p>
+                      </div>
+                      <div class="quadrado" id="calendario" onmouseover="mostrarTexto('Ver calendário acadêmico')" onclick="mudarTela('calendario')">
+                        <i class="icon">📅</i>
+                        <p>Calendário</p>
+                      </div>
+                      <div class="quadrado" id="alunos" onmouseover="mostrarTexto('Ver alunos matriculados')" onclick="mudarTela('alunos')">
+                        <i class="icon">👨‍🎓</i>
+                        <p>Alunos</p>
+                      </div>
+                      <div class="quadrado" id="registrar" onmouseover="mostrarTexto('Registrar aula')" onclick="mudarTela('registrar')">
+                        <i class="icon">🖊️</i>
+                        <p>Registrar Aula</p>
+                      </div>
+                    </div>
+                
+                    <!-- Barra de navegação com a descrição -->
+                    <div class="barra">
+                        <div class="barra-texto" id="barra-texto">Passe o mouse sobre um ícone para ver a descrição.</div>
+                    </div>
+                  </div>
+                  </div>
+    </div>
+</div>
+    <script src="/trabalho area /js/script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <footer>
+        <p>&copy; 2024 Todos os direitos reservados. Alunos ADS fasf</p>
+    </footer>
+    
+</body>
+</html>
